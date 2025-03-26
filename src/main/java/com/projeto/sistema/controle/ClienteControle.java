@@ -7,10 +7,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
 
+@RestController
 public class ClienteControle {
 
     @Autowired
@@ -18,7 +20,7 @@ public class ClienteControle {
 
     @GetMapping("/cadastrarCliente")
     public ModelAndView cadastrar(Cliente cliente) {
-        ModelAndView mv = new ModelAndView("administrativo/cliente/cadastro_cliente");
+        ModelAndView mv = new ModelAndView("administrativo/cliente/cadastroCliente");
         mv.addObject("cliente", cliente);
         return mv;
     }

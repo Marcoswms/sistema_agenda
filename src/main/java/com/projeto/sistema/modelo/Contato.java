@@ -7,11 +7,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table(name="contato")
+@Table(name="CONTATO")
 public class Contato {
     private static final long serialVersionUID = 1L;
+
+    @jakarta.persistence.Id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long clienteId;
     private String tipo;

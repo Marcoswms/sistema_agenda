@@ -10,20 +10,19 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="cliente")
+@Table(name="CLIENTE")
 public class Cliente implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
+    private static final long serialVersionUID = 1L;
+
+    @jakarta.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String cpf;
     private Date dataNascimento;
     private String endereco;
-
-    public Cliente() {
-    }
 
     public Long getId() {
         return id;

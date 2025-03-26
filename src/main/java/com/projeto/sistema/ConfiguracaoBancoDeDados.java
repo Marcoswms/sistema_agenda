@@ -11,12 +11,12 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-public class configuracaoBancoDeDados {
+public class ConfiguracaoBancoDeDados {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5433/sistema-agenda");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/sistema-agenda");
         dataSource.setUsername("postgres");
         dataSource.setPassword("postgres");
         return dataSource;
