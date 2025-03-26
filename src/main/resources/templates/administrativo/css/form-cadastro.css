@@ -1,0 +1,31 @@
+body {
+    background: rgb(218, 241, 240);
+}
+.card {
+    width: 790px;
+    background: linear-gradient(0deg, #8e4ee2, #e5d4f5);
+    border-radius: 15px;
+}
+.titulo-principal {
+    text-align: center;
+}
+.box, .form {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input, select {
+    width: 300px;
+    height: 30px;
+    border-radius: 6px;
+    padding: 0 15px 0 15px;
+    text-align: center;
+}
+.button {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

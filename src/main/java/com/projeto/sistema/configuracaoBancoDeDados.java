@@ -17,8 +17,8 @@ public class configuracaoBancoDeDados {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5433/sistema-agenda");
-        dataSource.setUsername("postgres");//usuario
-        dataSource.setPassword("postgres");//senha
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres");
         return dataSource;
     }
 
@@ -26,7 +26,7 @@ public class configuracaoBancoDeDados {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.POSTGRESQL); //driver do banco
-        adapter.setShowSql(true); //mostrar no console o sql, é interessante
+        adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
         adapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQLDialect");
         adapter.setPrepareConnection(true);

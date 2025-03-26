@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org"
+      xmlns:layout="https://www.ultraq.net.nz/thymeleaf/Layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap_4.1_css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/form-cadastro.css">
+
+
+    <title>Cadastrar Clientes</title>
+</head>
+
+<body>
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="container">
+            <h1 class="titulo-principal">Cadastrar Cliente</h1>
+            <p class="lead">Cadastre-se para adicionar seus contatos pessoais</p>
+        </div>
+
+        <form action="/salvarCliente" th:obct="${cliente}" method="POST">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputNome">Nome:</label>
+                    <input type="text" th:field="*{inputNome}" class="form-control" id="inputNome" name="inputNome" placeholder="Informe seu nome"/>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCpf">Cpf:</label>
+                    <input type="text" th:field="*{inputCpf}" class="form-control" id="inputCpf" placeholder="Informe seu cpf" maxlength="11"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEndereco">Endereço:</label>
+                <input type="text" th:field="*{inputEndereco}" class="form-control" id="inputEndereco" placeholder="Informe seu endereço"/>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDataNascimento">Data de nascimento:</label>
+                <input type="date" th:field="*{inputDataNascimento}" class="form-control" id="inputDataNascimento" placeholder="Data de nascimento"/>
+            </div>
+
+
+            <input type="hidden" th:field="*{inputId}"/>
+
+            <div class="container d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a class="btn btn-danger" href="/administrativo">Voltar</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

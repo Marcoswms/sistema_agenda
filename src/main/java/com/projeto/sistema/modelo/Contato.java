@@ -12,9 +12,8 @@ public class Contato {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
-    private Long cliente_id;
+    private Long clienteId;
     private String tipo;
     private String valor;
     private String observacao;
@@ -31,12 +30,12 @@ public class Contato {
         this.id = id;
     }
 
-    public Long getCliente_id() {
-        return cliente_id;
+    public Long getClienteId() {
+        return clienteId;
     }
 
-    public void setCliente_id(Long cliente_id) {
-        this.cliente_id = cliente_id;
+    public void setClienteId(Long clienteId) {
+        this.clienteId = clienteId;
     }
 
     public String getTipo() {

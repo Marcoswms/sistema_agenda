@@ -11,7 +11,6 @@ import java.sql.Date;
 
 @Entity
 @Table(name="cliente")
-
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -20,7 +19,7 @@ public class Cliente implements Serializable {
     private Long id;
     private String nome;
     private String cpf;
-    private Date data_nascimento;
+    private Date dataNascimento;
     private String endereco;
 
     public Cliente() {
@@ -50,12 +49,12 @@ public class Cliente implements Serializable {
         this.cpf = cpf;
     }
 
-    public Date getData_nascimento() {
-        return data_nascimento;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEndereco() {
