@@ -20,7 +20,7 @@ public class ClienteControle {
 
     @GetMapping("/cadastrarCliente")
     public ModelAndView cadastrar(Cliente cliente) {
-        ModelAndView mv = new ModelAndView("administrativo/cliente/cadastroCliente");
+        ModelAndView mv = new ModelAndView("administrativo/cliente/cadastraCliente");
         mv.addObject("cliente", cliente);
         return mv;
     }
@@ -40,13 +40,13 @@ public class ClienteControle {
     }
     @GetMapping("/editarCliente/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
-        Optional<Cliente> estado = clienteRepositorio.findById(id);
-        return cadastrar(estado.get());
+        Optional<Cliente> cliente = clienteRepositorio.findById(id);
+        return cadastrar(cliente.get());
     }
     @GetMapping("/removerCliente/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
-        Optional<Cliente> estado = clienteRepositorio.findById(id);
-        clienteRepositorio.delete(estado.get());
+        Optional<Cliente> cliente = clienteRepositorio.findById(id);
+        clienteRepositorio.delete(cliente.get());
         return listar();
     }
 }

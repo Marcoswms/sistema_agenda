@@ -25,20 +25,17 @@
                 <td>Cpf</td>
                 <td>Endereço</td>
                 <td>Data de Nascimento</td>
-                <td>Ação</td>
             </tr>
         </thead>
 
-        <tbody th:each="cliente: ${listacliente}">
-            <td th:text="${cliente.id}"></td>
-            <td th:text="${cliente.nome}"></td>
-            <td th:text="${cliente.cpf}"></td>
-            <td th:text="${cliente.endereco}"></td>
-            <td th:text="${cliente.dataNascimento}"></td>
+        <tbody th:each="cliente: ${listarCliente}">
+            <td th:text="${cliente.inputId}"></td>
+            <td th:text="${cliente.inputNome}"></td>
+            <td th:text="${cliente.inputCpf}"></td>
+            <td th:text="${cliente.inputEndereco}"></td>
+            <td th:text="${cliente.inputDataNascimento}"></td>
             <td colspan="2">
-
             <a th:href="@{/editarCliente/{id}(id=${cliente.inputId})}"><i class="fa-solid fa-pen-to-square" style="color: #9d55c3"></i></a>
-            
             <a th:href="@{/removerCliente/{id}(id=${cliente.inputId})}"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i></a>
             </td>
         </tbody>

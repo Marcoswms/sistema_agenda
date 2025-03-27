@@ -1,5 +1,6 @@
 package com.projeto.sistema.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +11,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="CLIENTE")
+@Table(name="cliente")
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
