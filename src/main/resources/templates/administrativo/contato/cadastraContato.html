@@ -26,33 +26,29 @@
 
             <form action="/salvarContato" th:object="${contato}" method="POST">
 
-                <div class="form-group">
-                    <label for="id">Cliente Id:</label>
-                    <input type="text" readonly="true" class="form-control" id="id" th:field="*{clienteId}">
-                </div>
-
-                <div class="form-group">
-                    <label for="id">Contato Id:</label>
-                    <input type="text" readonly="true" class="form-control" id="id" th:field="*{clienteId}">
-                </div>
-
-                
                 <div class="form-group col-md-6">
-                    <label for="inputTipo">Selecione: Telefone ou Email?</label>
-                    <select class="form-control" th:field="*{tipo}"  id="inputTipo">
-                        <option>Telefone</option>
-                        <option>Email</option>
+                    <label for="tipo">Contato: Telefone ou Email?</label>
+                    <select class="form-control" th:field="*{tipo}"  id="tipo">
+                        <option th:value="'Telefone'">Telefone</option>
+                        <option th:value="'Email'">Email</option>
                     </select>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="inputValor">Insira seu contato:</label>
-                        <input type="text" th:field="*{valor}" class="form-control" id="inputValor" placeholder="Informe Email ou Telefone"/>
+                    <label for="valor">Informação para Contato:</label>
+                        <input type="text" th:field="*{valor}" class="form-control" id="valor" placeholder="Informe Email ou Telefone"/>
                 </div>
                 
                 <div class="form-group">
-                    <label for="inputObservacao">Observação:</label>
-                    <input type="text" th:field="*{observacao}" class="form-control" id="inputObservacao" placeholder="Deixe alguma observação (Opcional)"/>
+                    <label for="observacao">Observação:</label>
+                    <input type="text" th:field="*{observacao}" class="form-control" id="observacao" placeholder="Deixe alguma observação (Opcional)"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Selecione o Cliente:</label>
+                    <select th:field="*{clienteId}" class="form-control">
+                        <option th:each="client : ${listaCliente}" th:value="${client.id}" th:text="${client.nome}"></option>
+                    </select>
                 </div>
 
                 <input type="hidden" th:field="*{id}"/>
@@ -61,9 +57,10 @@
                 <div class="container d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk">
                     </i>Salvar</button>
-                    <a class="btn btn-danger" href="/listarCliente"><i class="fa-solid fa-share">
+                    <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-share">
                     </i>Voltar</a> 
                 </div>
+
             </form>
         </div>
     </div>

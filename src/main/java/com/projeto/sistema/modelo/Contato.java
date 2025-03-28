@@ -3,11 +3,12 @@ package com.projeto.sistema.modelo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table(name="CONTATO")
+@Table(name="contato")
 public class Contato {
     private static final long serialVersionUID = 1L;
 
@@ -15,7 +16,6 @@ public class Contato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long clienteId;
     private String tipo;
     private String valor;
     private String observacao;
@@ -24,21 +24,14 @@ public class Contato {
 
     }
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne//Muitos para um (Neste caso muitos contatos para um cliente)
+    private Cliente clienteId;
+    ;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(Long clienteId) {
-        this.clienteId = clienteId;
-    }
 
     public String getTipo() {
         return tipo;
@@ -62,5 +55,15 @@ public class Contato {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+    public Cliente getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Cliente clienteId) {
+        this.clienteId = clienteId;
+    }
+    public Long getId() {
+        return id;
     }
 }
