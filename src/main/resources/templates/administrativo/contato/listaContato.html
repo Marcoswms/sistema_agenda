@@ -10,6 +10,8 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+
     <title>Lista</title>
 </head>
 
@@ -17,32 +19,66 @@
 
 <div class="container">
 
-    <table class="table">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo"><i class="fa-solid fa-house fa-lg" style="color: #70c1ff;"></i> Início </a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="/listarCliente"><i class="fa-solid fa-address-book fa-lg" style="color: #1ee6c5;"></i> Listar Cliente </a>
+    </nav>
+
+    <table class="table" id="tabela">
         <thead>
             <tr>
                 <td>Cliente</td>
                 <td>Tipo</td>
                 <td>Contato</td>
                 <td>Observação</td>
+                <td>Ação</td>
             </tr>
         </thead>
 
-        <tbody th:each="contato: ${listarContato}">
-            <td th:text="${contato.clienteId.nome}"></td>
-            <td th:text="${contato.tipo}"></td>
-            <td th:text="${contato.valor}"></td>
-            <td th:text="${contato.observacao}"></td>
-            <td colspan="2">
+        <tbody>
+            <tr th:each="contato: ${listarContato}">
+                <td th:text="${contato.clienteId.nome}"></td>
+                <td th:text="${contato.tipo}"></td>
+                <td th:text="${contato.valor}"></td>
+                <td th:text="${contato.observacao}"></td>
+                <td colspan="2">
 
-            <a th:href="@{/editarContato/{id}(id=${contato.id})}"><i class="fa-solid fa-pen-to-square" style="color: #9d55c3"></i></a>
-            <a th:href="@{/removerContato/{id}(id=${contato.id})}"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i></a>
-            </td>
+                <a th:href="@{/editarContato/{id}(id=${contato.id})}"><i class="fa-solid fa-pen-to-square" style="color: #9d55c3"></i></a>
+                <a th:href="@{/removerContato/{id}(id=${contato.id})}"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i></a>
+                </td>
+            </tr>
         </tbody>
     </table>
 
-    <a class="btn btn-danger" href="/administrativo">Voltar</a>
-
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#tabela').DataTable();
+        } );
+        
+        var table = new DataTable('#tabela', {
+            language: {
+            url: '//cdn.datatables.net/plug-ins/2.2.2/i18n/pt-BR.json',
+            },
+        });
+    </script>
 
 </body>
 
