@@ -1,13 +1,12 @@
 package com.projeto.sistema.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name="cliente")
@@ -18,11 +17,25 @@ public class Cliente implements Serializable {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column
     private Long id;
+
+    @Column
     private String nome;
+
+    @Column
     private String cpf;
+
+    @Column
     private Date dataNascimento;
+
+    @Column
     private String endereco;
+
+    @Column
+    @OneToMany(mappedBy = "clienteId")
+    private List<Contato> contatos;
 
     public Long getId() {
         return id;

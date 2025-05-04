@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
 
-    <title>Lista</title>
+    <title>Listar Contatos</title>
 </head>
 
 <body>
@@ -45,6 +45,7 @@
 
                 <a th:href="@{/editarContato/{id}(id=${contato.id})}"><i class="fa-solid fa-pen-to-square" style="color: #9d55c3"></i></a>
                 <a th:href="@{/removerContato/{id}(id=${contato.id})}"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i></a>
+
                 </td>
             </tr>
         </tbody>
@@ -72,7 +73,7 @@
         $(document).ready( function () {
             $('#tabela').DataTable();
         } );
-        
+
         var table = new DataTable('#tabela', {
             language: {
             url: '//cdn.datatables.net/plug-ins/2.2.2/i18n/pt-BR.json',

@@ -1,9 +1,6 @@
 package com.projeto.sistema.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -16,22 +13,22 @@ public class Contato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String tipo;
+
+    @Column
     private String valor;
+
+    @Column
     private String observacao;
 
-    public Contato() {
-
-    }
-
-    @ManyToOne//Muitos para um (Neste caso muitos contatos para um cliente)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Cliente clienteId;
-    ;
 
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getTipo() {
         return tipo;
@@ -56,6 +53,7 @@ public class Contato {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+
     public Cliente getClienteId() {
         return clienteId;
     }
@@ -63,6 +61,7 @@ public class Contato {
     public void setClienteId(Cliente clienteId) {
         this.clienteId = clienteId;
     }
+
     public Long getId() {
         return id;
     }

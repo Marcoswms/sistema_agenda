@@ -1,6 +1,5 @@
 package com.projeto.sistema.controle;
 
-import com.projeto.sistema.modelo.Cliente;
 import com.projeto.sistema.modelo.Contato;
 import com.projeto.sistema.repositorio.ClienteRepositorio;
 import com.projeto.sistema.repositorio.ContatoRepositorio;
