@@ -33,8 +33,7 @@ public class Cliente implements Serializable {
     @Column
     private String endereco;
 
-    @Column
-    @OneToMany(mappedBy = "clienteId")
+    @OneToMany(mappedBy = "clienteId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contato> contatos;
 
     public Long getId() {
@@ -75,5 +74,13 @@ public class Cliente implements Serializable {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
     }
 }

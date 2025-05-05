@@ -37,19 +37,19 @@ public class ContatoControle {
         contatoRepositorio.saveAndFlush(contato);
         return cadastrar(new Contato());
     }
+    @GetMapping("/editarContato/{id}")
+    public ModelAndView editar(@PathVariable("id") Long id) {
+        Optional<Contato> contato = contatoRepositorio.findById(id);
+        return cadastrar(contato.get());
+    }
     @GetMapping("/listarContato")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/contato/listaContato");
         mv.addObject("listarContato", contatoRepositorio.findAll());
         return mv;
     }
-    @GetMapping("/editarContato/{id}")
-    public ModelAndView editar(@PathVariable("id") Long id) {
-        Optional<Contato> contato = contatoRepositorio.findById(id);
-        return cadastrar(contato.get());
-    }
     @GetMapping("/removerContato/{id}")
-    public ModelAndView remover(@PathVariable("id") Long id) {
+    public ModelAndView deletar(@PathVariable("id") Long id) {
         Optional<Contato> contato = contatoRepositorio.findById(id);
         contatoRepositorio.delete(contato.get());
         return listar();

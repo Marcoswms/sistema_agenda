@@ -30,13 +30,7 @@
                 <h1 class="titulo-principal">Cadastrar Cliente</h1>
                 <p class="lead">Cadastre-se para adicionar seus contatos pessoais</p>
             </div>
-
             <form action="/salvarCliente" th:object="${cliente}" method="POST">
-
-                <div class="form-group">
-                    <label for="id">Id:</label>
-                    <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
-                </div>
 
                 <div class="form-group">
                     <label for="nome">Nome:</label>
@@ -67,7 +61,6 @@
                 </div>
 
             </form>
-
         </div>
     </div>
 

@@ -23,7 +23,7 @@ public class Contato {
     @Column
     private String observacao;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     private Cliente clienteId;
 
     public void setId(Long id) {
