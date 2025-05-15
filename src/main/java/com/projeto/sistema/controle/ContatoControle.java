@@ -29,25 +29,29 @@ public class ContatoControle {
         mv.addObject("listaCliente", clienteRepositorio.findAll());
         return mv;
     }
+
     @PostMapping("/salvarContato")
     public ModelAndView salvar(Contato contato, BindingResult result) {
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return cadastrar(contato);
         }
         contatoRepositorio.saveAndFlush(contato);
-        return cadastrar(new Contato());
+        return listar();
     }
+
     @GetMapping("/editarContato/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Contato> contato = contatoRepositorio.findById(id);
         return cadastrar(contato.get());
     }
+
     @GetMapping("/listarContato")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/contato/listaContato");
         mv.addObject("listarContato", contatoRepositorio.findAll());
         return mv;
     }
+
     @GetMapping("/removerContato/{id}")
     public ModelAndView deletar(@PathVariable("id") Long id) {
         Optional<Contato> contato = contatoRepositorio.findById(id);

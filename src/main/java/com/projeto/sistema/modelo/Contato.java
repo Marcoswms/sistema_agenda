@@ -14,16 +14,14 @@ public class Contato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     private String tipo;
 
-    @Column
     private String valor;
 
-    @Column
     private String observacao;
 
     @ManyToOne
+    @JoinColumn(name = "clienteId")
     private Cliente clienteId;
 
     public void setId(Long id) {

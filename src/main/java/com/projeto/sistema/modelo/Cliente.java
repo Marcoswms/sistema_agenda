@@ -18,19 +18,14 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column
     private Long id;
 
-    @Column
     private String nome;
 
-    @Column
     private String cpf;
 
-    @Column
     private Date dataNascimento;
 
-    @Column
     private String endereco;
 
     @OneToMany(mappedBy = "clienteId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

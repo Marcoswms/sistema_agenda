@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PrincipalControle {
 
     @GetMapping("/administrativo")
-    public String acessaPrincipal(){
+    public String acessaPrincipal() {
         return "administrativo/home";
     }
 }
