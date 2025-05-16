@@ -5,6 +5,9 @@
 }
 .titulo-principal {
     text-align: center;
+    font-weight: bold;
+    color: #4a007d;
+    margin-bottom: 10px;
 }
 .box, .form {
     gap: 15px;
@@ -25,4 +28,10 @@ input, select {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+select.form-control {
+    height: 38px;
+    line-height: 1.5;
+    padding: 6px 12px;
+    font-size: 1rem;
 }
