@@ -25,12 +25,13 @@
 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="card borda px-4 py-4 fade-in w-100" style="max-width: 600px;">
+
         <div class="text-center mb-4">
             <h1 class="titulo-principal">Cadastrar Cliente</h1>
-            <p class="lead">Cadastre-se para adicionar seus contatos pessoais</p>
+            <p class="lead">Cadastre seus clientes para adicionar contatos </p>
         </div>
 
-        <form action="/salvarCliente" th:object="${cliente}" method="POST" class="needs-validation" novalidate>
+        <form action="/salvarCliente" th:object="${cliente}" method="POST">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
                 <input required type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="Informe seu nome" />
@@ -63,6 +64,7 @@
                 </button>
             </div>
         </form>
+
     </div>
 </div>
 

@@ -32,7 +32,6 @@
             </div>
 
             <form action="/salvarContato" th:object="${contato}" method="POST">
-
                 <div class="form-group ">
                     <label for="tipo">Contato: Telefone ou Email?</label>
                     <select class="form-control" th:field="*{tipo}"  id="tipo">

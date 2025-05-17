@@ -17,16 +17,15 @@ public class Cliente implements Serializable {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-
     private String nome;
-
     private String cpf;
-
     private Date dataNascimento;
-
     private String endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "usuarioId")
+    private Usuario usuarioId;
 
     @OneToMany(mappedBy = "clienteId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contato> contatos;
@@ -77,5 +76,13 @@ public class Cliente implements Serializable {
 
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+
+    public Usuario getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
     }
 }
