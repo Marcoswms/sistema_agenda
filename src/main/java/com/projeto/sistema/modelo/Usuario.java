@@ -1,7 +1,13 @@
 package com.projeto.sistema.modelo;
 
-import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,7 +19,6 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +29,7 @@ public class Usuario implements Serializable {
     private String senha;
     private String email;
 
-    @OneToMany(mappedBy = "usuarioId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cliente> clientes;
 
     public Long getId() {
@@ -81,5 +86,13 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 }

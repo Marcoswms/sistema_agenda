@@ -1,15 +1,12 @@
 package com.projeto.sistema.modelo;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
 @Table(name="contato")
 public class Contato {
     private static final long serialVersionUID = 1L;
 
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,8 +15,8 @@ public class Contato {
     private String observacao;
 
     @ManyToOne
-    @JoinColumn(name = "clienteId")
-    private Cliente clienteId;
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     public void setId(Long id) {
         this.id = id;
@@ -49,12 +46,12 @@ public class Contato {
         this.observacao = observacao;
     }
 
-    public Cliente getClienteId() {
-        return clienteId;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setClienteId(Cliente clienteId) {
-        this.clienteId = clienteId;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Long getId() {

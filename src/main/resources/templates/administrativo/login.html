@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body class="bg-dark text-white d-flex align-items-center justify-content-center vh-100">
+
+<div class="p-4 rounded-4 shadow" style="max-width: 400px; width: 100%; background-color: #2d2d2d;">
+
+    <div class="text-center mb-4">
+        <img th:src="@{/imagens/logoProjetoAgendaTech.png}" alt="Logo" style="height: 60px;">
+    </div>
+
+    <h4 class="text-center mb-4">Entrar</h4>
+
+    <form action="/login" method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" id="username" name="username"
+                   class="form-control bg-dark text-white border-secondary" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" id="password" name="password"
+                   class="form-control bg-dark text-white border-secondary" required>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe" name="remember-me">
+                <label class="form-check-label" for="rememberMe">
+                    Lembrar-me
+                </label>
+            </div>
+            <a href="#" class="text-decoration-none text-secondary small">Esqueci minha senha?</a>
+            <a href="/cadastrarUsuario" class="list-group-item"><li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #1ee6c5;"></i>Cadastre-se</li></a>
+        </div>
+
+        <button type="submit" class="btn btn-outline-light w-100">Acessar</button>
+    </form>
+
+</div>
+
+</body>
+</html>

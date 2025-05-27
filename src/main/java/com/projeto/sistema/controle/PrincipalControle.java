@@ -8,6 +8,6 @@ public class PrincipalControle {
 
     @GetMapping("/administrativo")
     public String acessaPrincipal() {
-        return "administrativo/home";
+        return "administrativo/login";
     }
 }

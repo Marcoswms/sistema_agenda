@@ -14,12 +14,8 @@
 <div class="container mt-4">
 
     <nav class="nav nav-pills flex-column flex-sm-row mb-3">
-        <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo">
-            <i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início
-        </a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="/listarCliente">
-            <i class="fa-solid fa-address-book fa-lg" style="color: #1ee6c5;"></i> Listar Cliente
-        </a>
+        <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo/areaLogada"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início</a>
+<!--        <a class="flex-sm-fill text-sm-center nav-link" th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuario.id})}"><i class="fa-solid fa-address-book fa-lg" style="color: #1ee6c5;"></i> Listar Cliente</a>-->
     </nav>
 
     <table class="table" id="tabela">
@@ -34,8 +30,8 @@
         </thead>
 
         <tbody>
-        <tr th:each="contato: ${listarContato}">
-            <td th:text="${contato.clienteId.nome}"></td>
+        <tr th:each="contato: ${listaContato}">
+            <td th:text="${contato.cliente.nome}"></td>
             <td th:text="${contato.tipo}"></td>
             <td th:text="${contato.valor}"></td>
             <td th:text="${contato.observacao}"></td>

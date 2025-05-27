@@ -40,7 +40,7 @@
 
             <div class="mb-3">
                 <label for="cpf" class="form-label">CPF:</label>
-                <input required type="text" id="cpf" th:field="*{Cpf}" class="form-control" placeholder="Informe seu CPF" maxlength="11" />
+                <input required type="text" id="cpf" th:field="*{cpf}" class="form-control" placeholder="Informe seu CPF" maxlength="11" />
                 <div class="invalid-feedback">CPF é obrigatório e deve conter 11 dígitos.</div>
             </div>
 
@@ -56,7 +56,8 @@
                 <div class="invalid-feedback">Endereço é obrigatório.</div>
             </div>
 
-            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{usuarioId}"/>
 
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-success confirm-button px-4">

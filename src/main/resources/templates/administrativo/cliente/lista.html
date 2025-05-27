@@ -15,8 +15,8 @@
 <div class="container mt-4">
 
     <nav class="nav nav-pills flex-column flex-sm-row mb-3">
-        <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início</a>
-        <a class="flex-sm-fill text-sm-center nav-link" href="/listarContato"><i class="fa-solid fa-clipboard-list fa-lg" style="color: #1ee6c5;"></i> Listar Contato</a>
+        <a href="/login" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início</a>
+        <a th:href="@{/listarContato/{usuarioId}(usuarioId=${usuarioId})}" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-clipboard-list fa-lg" style="color: #1ee6c5;"></i> Listar Contato</a>
     </nav>
 
     <table class="table" id="tabela">
@@ -36,13 +36,11 @@
             <td th:text="${cliente.endereco}"></td>
             <td th:text="${cliente.dataNascimento}"></td>
             <td>
-
-                <a th:href="@{/cadastrarContato}" class="me-2"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i></a>
+                <a th:href="@{/cadastrarContato/{clienteId}(clienteId=${cliente.id})}" class="me-2"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i></a>
                 <a href="#" class="btn-editar" th:data-id="${cliente.id}" data-bs-toggle="modal"
                    data-bs-target="#ModalEditar"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #9d55c3"></i></a>
                 <a href="#" class="btn-excluir" th:data-id="${cliente.id}" data-bs-toggle="modal"
                    data-bs-target="#ModalExcluir"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i></a>
-
             </td>
         </tr>
         </tbody>

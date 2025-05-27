@@ -1,11 +1,8 @@
 package com.projeto.sistema.modelo;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
-
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -14,20 +11,19 @@ public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String cpf;
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     private String endereco;
 
     @ManyToOne
-    @JoinColumn(name = "usuarioId")
-    private Usuario usuarioId;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    @OneToMany(mappedBy = "clienteId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contato> contatos;
 
     public Long getId() {
@@ -54,11 +50,11 @@ public class Cliente implements Serializable {
         this.cpf = cpf;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -78,11 +74,11 @@ public class Cliente implements Serializable {
         this.contatos = contatos;
     }
 
-    public Usuario getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Usuario usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
