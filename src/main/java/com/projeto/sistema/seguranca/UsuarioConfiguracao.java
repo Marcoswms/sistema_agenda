@@ -1,4 +1,4 @@
-package com.projeto.sistema.configuracao;
+package com.projeto.sistema.seguranca;
 
 import com.projeto.sistema.modelo.Usuario;
 import org.springframework.context.annotation.Bean;

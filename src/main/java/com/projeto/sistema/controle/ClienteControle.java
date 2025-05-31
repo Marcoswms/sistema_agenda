@@ -21,7 +21,7 @@ public class ClienteControle {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
-    @GetMapping("/cadastrarCliente/{usuarioId}")//12850
+    @GetMapping("/cadastrarCliente/{usuarioId}")
     public ModelAndView cadastrar(Cliente cliente, @PathVariable("usuarioId") Long usuarioId) {
         ModelAndView mv = new ModelAndView("administrativo/cliente/cadastraCliente");
         mv.addObject("cliente", cliente);
@@ -56,6 +56,7 @@ public class ClienteControle {
     public ModelAndView listar(@PathVariable("usuarioId") Long usuarioId) {
         ModelAndView mv = new ModelAndView("administrativo/cliente/lista");
         mv.addObject("listaCliente",clienteRepositorio.findByUsuarioId(usuarioId));
+        mv.addObject("usuarioId", usuarioId);
         return mv;
     }
 

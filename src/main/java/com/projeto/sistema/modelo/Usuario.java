@@ -1,13 +1,6 @@
 package com.projeto.sistema.modelo;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -28,6 +21,9 @@ public class Usuario implements Serializable {
     private String username;
     private String senha;
     private String email;
+
+    @Enumerated(EnumType.STRING)
+    private Perfil perfil; // Se Admin ou se Cliente
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cliente> clientes;
@@ -94,5 +90,13 @@ public class Usuario implements Serializable {
 
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 }

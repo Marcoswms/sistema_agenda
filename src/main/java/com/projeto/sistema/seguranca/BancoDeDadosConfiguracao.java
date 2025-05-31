@@ -1,4 +1,4 @@
-package com.projeto.sistema;
+package com.projeto.sistema.seguranca;
 
 
 import javax.sql.DataSource;
@@ -11,7 +11,7 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
-public class ConfiguracaoBancoDeDados {
+public class BancoDeDadosConfiguracao {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();

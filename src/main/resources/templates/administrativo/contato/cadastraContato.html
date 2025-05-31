@@ -50,9 +50,8 @@
                     <input type="text" th:field="*{observacao}" class="form-control" id="observacao" placeholder="Deixe alguma observação (Opcional)"/>
                 </div>
 
-                <input type="hidden" th:field="*{id}"/>
                 <input type="hidden" name="clienteId" th:value="${clienteId}" />
-
+                <input type="hidden" th:field="*{id}"/>
 
                 <div class="container d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-success">

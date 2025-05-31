@@ -30,13 +30,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cliente : ${listaCliente}">
+        <tr th:each="cliente : ${listaCliente}"><!-- Laço 'for each' para extrair dados do objeto 'listaCliente', como id, nome e etc..-->
             <td th:text="${cliente.nome}"></td>
             <td th:text="${cliente.cpf}"></td>
             <td th:text="${cliente.endereco}"></td>
             <td th:text="${cliente.dataNascimento}"></td>
             <td>
-                <a th:href="@{/cadastrarContato/{clienteId}(clienteId=${cliente.id})}" class="me-2"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i></a>
+                <a th:href="@{/cadastrarContato/{clienteId}(clienteId=${cliente.id})}" class="me-2">
+                    <i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i>
+                </a>
                 <a href="#" class="btn-editar" th:data-id="${cliente.id}" data-bs-toggle="modal"
                    data-bs-target="#ModalEditar"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #9d55c3"></i></a>
                 <a href="#" class="btn-excluir" th:data-id="${cliente.id}" data-bs-toggle="modal"

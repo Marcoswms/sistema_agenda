@@ -56,8 +56,8 @@
                 <div class="invalid-feedback">Endereço é obrigatório.</div>
             </div>
 
+            <input type="hidden" name="usuarioId" th:value="${usuarioId}" />
             <input type="hidden" th:field="*{id}"/>
-            <input type="hidden" th:field="*{usuarioId}"/>
 
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-success confirm-button px-4">

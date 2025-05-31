@@ -12,12 +12,12 @@
 <div class="p-4 rounded-4 shadow" style="max-width: 400px; width: 100%; background-color: #2d2d2d;">
 
     <div class="text-center mb-4">
-        <img th:src="@{/imagens/logoProjetoAgendaTech.png}" alt="Logo" style="height: 60px;">
+        <img th:src="@{/imagens/logoProjetoAgendaTech.png}" alt="Logo" style="height: 80px;">
     </div>
 
     <h4 class="text-center mb-4">Entrar</h4>
 
-    <form action="/login" method="POST">
+    <form action="/areaLogada" method="POST">
         <div class="mb-3">
             <label for="username" class="form-label">Usuário</label>
             <input type="text" id="username" name="username"
@@ -37,8 +37,12 @@
                     Lembrar-me
                 </label>
             </div>
-            <a href="#" class="text-decoration-none text-secondary small">Esqueci minha senha?</a>
-            <a href="/cadastrarUsuario" class="list-group-item"><li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #1ee6c5;"></i>Cadastre-se</li></a>
+            <div class="mb-3">
+                <a href="#" class="text-decoration-none text-secondary small">Esqueci minha senha?</a>
+                <a href="/cadastrarUsuario" class="list-group-item">
+                    <i class="fa-solid fa-user-plus fa-lg" style="color: #1ee6c5;"></i> Cadastre-se
+                </a>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-outline-light w-100">Acessar</button>
