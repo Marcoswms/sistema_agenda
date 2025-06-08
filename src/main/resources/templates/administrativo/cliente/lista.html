@@ -12,13 +12,14 @@
 </head>
 
 <body>
+
 <div class="container mt-4">
-
     <nav class="nav nav-pills flex-column flex-sm-row mb-3">
-        <a href="/login" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início</a>
-        <a th:href="@{/listarContato/{usuarioId}(usuarioId=${usuarioId})}" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-clipboard-list fa-lg" style="color: #1ee6c5;"></i> Listar Contato</a>
+        <a th:href="@{/inicio}" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-house fa-xl" style="color: #f56fc8;">
+        </i> Início</a>
+        <a th:href="@{/listarContato/{usuarioId}(usuarioId=${usuarioId})}" class="flex-sm-fill text-sm-center nav-link">
+            <i class="fa-solid fa-clipboard-list fa-xl" style="color: #1ee6c5;"></i> Listar Contato</a>
     </nav>
-
     <table class="table" id="tabela">
         <thead>
         <tr>

@@ -12,10 +12,12 @@
 
 <body>
 <div class="container mt-4">
-
     <nav class="nav nav-pills flex-column flex-sm-row mb-3">
-        <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo/areaLogada"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início</a>
-<!--        <a class="flex-sm-fill text-sm-center nav-link" th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuario.id})}"><i class="fa-solid fa-address-book fa-lg" style="color: #1ee6c5;"></i> Listar Cliente</a>-->
+        <a th:href="@{/inicio}" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-house fa-xl" style="color: #f56fc8;">
+        </i> Início</a>
+        <a th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuarioId})}" class="flex-sm-fill text-sm-center nav-link">
+            <i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Voltar para Clientes
+        </a>
     </nav>
 
     <table class="table" id="tabela">

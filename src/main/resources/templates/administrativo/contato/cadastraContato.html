@@ -16,11 +16,15 @@
 </head>
 
 <body>
-
-<nav class="nav nav-pills flex-column flex-sm-row">
-    <a class="flex-sm-fill text-sm-center nav-link" href="/administrativo"><i class="fa-solid fa-house fa-lg" style="color: #f56fc8;"></i> Início </a>
-    <a class="flex-sm-fill text-sm-center nav-link" href="/listarCliente"><i class="fa-solid fa-address-book fa-lg" style="color: #1ee6c5;"></i> Listar Cliente </a>
-</nav>
+<div class="container mt-4">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+        <a href="/inicio" class="flex-sm-fill text-sm-center nav-link"><i class="fa-solid fa-house fa-xl" style="color: #f56fc8;">
+        </i> Início</a>
+        <a th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuarioId})}" class="flex-sm-fill text-sm-center nav-link">
+            <i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Voltar para Clientes
+        </a>
+    </nav>
+</div>
 
 <div class="container mt-5 mb-5 d-flex justify-content-center">
     <div class="container d-flex justify-content-center align-items-center">

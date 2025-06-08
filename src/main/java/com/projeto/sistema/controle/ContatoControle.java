@@ -24,6 +24,12 @@ public class ContatoControle {
         ModelAndView mv = new ModelAndView("administrativo/contato/cadastraContato");
         mv.addObject("contato", contato);
         mv.addObject("clienteId", clienteId);
+
+        //Puxa um cliente para 'extrair' seu 'usuarioId'
+        Cliente cliente = clienteRepositorio.findById(clienteId)
+                .orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+        mv.addObject("usuarioId", cliente.getUsuario().getId());
+
         return mv;
     }
 
