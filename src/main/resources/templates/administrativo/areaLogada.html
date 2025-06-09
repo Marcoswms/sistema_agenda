@@ -30,29 +30,49 @@
             <!--#strings.equalsIgnoreCase: função utilitária do Thymeleaf que compara duas strings ignorando se
              maiuscula ou minuscula -->
             <div th:if="${usuario != null and #strings.equalsIgnoreCase(usuario.perfil, 'ADMIN')}">
-                <!-- Do objeto 'usuário' pega-se o 'usuario.id' e o encaminha apelidado de 'usuarioId' na rota com Thymeleaf -->
-                <a th:href="@{/cadastrarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
-                    <li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #1ee6c5;"></i> Novo Cliente</li>
+
+                <div class="card-body">
+                    <p><h6 class="card-title">Usuário</h6></p>
+                </div>
+
+                <a th:href="@{/cadastrarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                    <li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #4987f3;"></i> Novo Usuário</li>
                 </a>
-                <a th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
-                    <li class="list-group-item"><i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Listar Clientes</li>
+                <!-- Criar a Lista -->
+                <a th:href="@{/listarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                    <li class="list-group-item"><i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Listar Usuário</li>
                 </a>
-                <a th:href="@{/editarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+
+               <!-- Editar e Excluir 'USUARIO' precisa estar dentro de uma lista, para que seja selecionado qual Id de 'USUARIO'
+               receberá a alteração ou exclusão.
+
+               <a th:href="@{/editarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i> Editar Usuário</li>
                 </a>
                 <a th:href="@{/removerUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-trash-can" style="color: #e30224;"></i> Excluir Usuário</li>
-                </a>
+                </a> -->
             </div>
 
-            <!-- Ações disponíveis para ADMIN E USUARIO -->
+            <!-- Ações disponíveis para USUARIO -->
             <div th:if="${usuario != null}">
+
+                <div class="card-body">
+                    <p><h6 class="card-title">Clientes</h6></p>
+                </div>
+                <!-- Do objeto 'usuário' pega-se o 'usuario.id' e o encaminha apelidado de 'usuarioId' na rota com Thymeleaf -->
+                <a th:href="@{/cadastrarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                    <li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #4987f3;"></i> Novo Cliente</li>
+                </a>
                 <a th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Ver Meus Clientes</li>
                 </a>
-                <a th:href="@{/editarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
-                    <li class="list-group-item"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i> Editar Meus Dados</li>
-                </a>
+
+                <div th:if="${usuario != null and #strings.equalsIgnoreCase(usuario.perfil, 'USUARIO')}">
+                    <a th:href="@{/editarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                        <li class="list-group-item"><i class="fa-solid fa-address-card fa-lg" style="color: #9d55c3"></i> Editar Meus Dados</li>
+                    </a>
+                </div>
             </div>
 
         </ul>
