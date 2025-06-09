@@ -10,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Optional;
+
 @Controller
 public class ContatoControle {
 
@@ -32,7 +34,6 @@ public class ContatoControle {
 
         return mv;
     }
-
     //@RequestParam: pega o parametro que foi passado dentro do 'form' através do 'nome:' e 'value'
     @PostMapping("/salvarContato")
     public ModelAndView salvar(@ModelAttribute("contato") Contato contato,
@@ -48,11 +49,14 @@ public class ContatoControle {
         contatoRepositorio.saveAndFlush(contato);
         return cadastrar(new Contato(), clienteId);
     }
-//    @GetMapping("/editarContato/{id}")
-//    public ModelAndView editar(@PathVariable("id") Long id) {
-//        Optional<Contato> contato = contatoRepositorio.findById(id);
-//        return cadastrar(contato.get());
-//    }
+
+    @GetMapping("/editarContato/{contatoId}")
+    public ModelAndView editar(@PathVariable("contatoId") Long contatoId) {
+        Optional<Contato> contatoOptional = contatoRepositorio.findById(contatoId);
+        Contato contato = contatoOptional.get();
+        Long id = contato.getId();
+        return cadastrar(contato, id);
+    }
 
     @GetMapping("/listarContato/{usuarioId}")//puxar o id do usuário para filtrar findById(id)
     public ModelAndView listar(@PathVariable("usuarioId") Long usuarioId) {
@@ -62,10 +66,12 @@ public class ContatoControle {
         return mv;
     }
 
-//    @GetMapping("/removerContato/{id}")
-//    public ModelAndView deletar(@PathVariable("id") Long id) {
-//        Optional<Contato> contato = contatoRepositorio.findById(id);
-//        contatoRepositorio.delete(contato.get());
-//        return listar();
-//    }
+    @GetMapping("/removerContato/{contatoId}")
+    public ModelAndView deletar(@PathVariable("id") Long contatoId) {
+        Optional<Contato> contatoOptional = contatoRepositorio.findById(contatoId);
+        Contato contato = contatoOptional.get();
+        Long usuarioId = contato.getCliente().getUsuario().getId();
+        contatoRepositorio.delete(contato);
+        return listar(usuarioId);
+    }
 }

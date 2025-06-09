@@ -44,9 +44,10 @@ public class ClienteControle {
         return cadastrar(new Cliente(), usuarioId);
     }
 
-    @GetMapping("/editarCliente/{id}")
-    public ModelAndView editar(@PathVariable("id") Long id) {
-        Optional<Cliente> clienteOptional = clienteRepositorio.findById(id);
+    @GetMapping("/editarCliente/{clienteId}")
+    public ModelAndView editar(@PathVariable("clienteId") Long clienteId) {
+        //'Optional' é a forma segura para se trabalhar com valores que podem ser Nulos, evitando um NullPointerException
+        Optional<Cliente> clienteOptional = clienteRepositorio.findById(clienteId);
         Cliente cliente = clienteOptional.get();
         Long usuarioId = cliente.getUsuario().getId();
         return cadastrar(cliente, usuarioId);
@@ -60,9 +61,9 @@ public class ClienteControle {
         return mv;
     }
 
-    @GetMapping("/removerCliente/{usuarioId}")
-    public ModelAndView deletar(@PathVariable("usuarioId") Long id) {
-        Optional<Cliente> clienteOptional = clienteRepositorio.findById(id);
+    @GetMapping("/removerCliente/{clienteId}")
+    public ModelAndView deletar(@PathVariable("clienteId") Long clienteId) {
+        Optional<Cliente> clienteOptional = clienteRepositorio.findById(clienteId);
         Cliente cliente = clienteOptional.get();
         Long usuarioId = cliente.getUsuario().getId();
         clienteRepositorio.delete(cliente);

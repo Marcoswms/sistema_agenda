@@ -97,13 +97,13 @@
         });
 
         $('.btn-editar').on('click', function () {
-            const id = $(this).data('id');
-            $('#link-editar').attr('href', `/editarCliente/${id}`);
+            const clienteId = $(this).data('id');
+            $('#link-editar').attr('href', `/editarCliente/${clienteId}`);
         });
 
         $('.btn-excluir').on('click', function () {
-            const id = $(this).data('id');
-            $('#link-excluir').attr('href', `/removerCliente/${id}`);
+            const clienteId = $(this).data('id');
+            $('#link-excluir').attr('href', `/removerCliente/${clienteId}`);
         });
     });
 </script>

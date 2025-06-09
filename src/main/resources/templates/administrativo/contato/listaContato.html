@@ -97,13 +97,13 @@
         });
 
         $('.btn-editar').on('click', function () {
-            const id = $(this).data('id');
-            $('#link-editar').attr('href', `/editarContato/${id}`);
+            const contatoId = $(this).data('id');
+            $('#link-editar').attr('href', `/editarContato/${contatoId}`);
         });
 
         $('.btn-excluir').on('click', function () {
-            const id = $(this).data('id');
-            $('#link-excluir').attr('href', `/removerContato/${id}`);
+            const contatoId = $(this).data('id');
+            $('#link-excluir').attr('href', `/removerContato/${contatoId}`);
         });
     });
 </script>
