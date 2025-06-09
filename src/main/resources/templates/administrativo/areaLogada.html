@@ -18,12 +18,18 @@
         <div class="card-body">
             <h4 class="card-title"><i class="fa-solid fa-address-book fa-2xl" style="color: #f56fc8;"></i> Agenda Tech</h4><br>
             <p><h6 class="card-title"> Praticidade para salvar clientes de forma simples e intuitiva.</h6></p>
+
+            <div th:if="${usuario != null}">
+                <p><h6 class="card-title">Bem-vindo, <span th:text="${usuario.nome}">usuário</span> !</h6></p>
+            </div>
+
+            <p th:text="'Perfil logado: ' + ${usuario.perfil}">Perfil não carregado</p>
         </div>
 
         <ul class="list-group list-group-flush">
-
-            <!-- Ações disponíveis apenas para ADMIN -->
-            <div sec:authorize="hasRole('ADMIN')">
+            <!--#strings.equalsIgnoreCase: função utilitária do Thymeleaf que compara duas strings ignorando se
+             maiuscula ou minuscula -->
+            <div th:if="${usuario != null and #strings.equalsIgnoreCase(usuario.perfil, 'ADMIN')}">
                 <!-- Do objeto 'usuário' pega-se o 'usuario.id' e o encaminha apelidado de 'usuarioId' na rota com Thymeleaf -->
                 <a th:href="@{/cadastrarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #1ee6c5;"></i> Novo Cliente</li>
@@ -39,8 +45,8 @@
                 </a>
             </div>
 
-            <!-- Ações disponíveis apenas para CLIENTE -->
-            <div sec:authorize="hasRole('CLIENTE')">
+            <!-- Ações disponíveis para ADMIN E USUARIO -->
+            <div th:if="${usuario != null}">
                 <a th:href="@{/listarCliente/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Ver Meus Clientes</li>
                 </a>
