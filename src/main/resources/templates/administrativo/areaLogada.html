@@ -35,11 +35,11 @@
                     <p><h6 class="card-title">Usuário</h6></p>
                 </div>
 
-                <a th:href="@{/cadastrarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                <a th:href="@{/cadastrarUsuario}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-user-plus fa-lg" style="color: #4987f3;"></i> Novo Usuário</li>
                 </a>
                 <!-- Criar a Lista -->
-                <a th:href="@{/listarUsuario/{usuarioId}(usuarioId=${usuario.id})}" class="list-group-item">
+                <a th:href="@{/listarUsuario/{perfil}(perfil=${'USUARIO'})}" class="list-group-item">
                     <li class="list-group-item"><i class="fa-solid fa-id-card fa-lg" style="color: #1ee6c5;"></i> Listar Usuário</li>
                 </a>
 

@@ -36,6 +36,20 @@ public class UsuarioControle {
         return new ModelAndView("redirect:/retornarLogin?mensagem=Usuário cadastrado com sucesso!");
     }
 
+    @GetMapping("/listarUsuario/{perfil}")
+    public ModelAndView listarUsuario(@PathVariable ("perfil") Perfil perfil) {
+        ModelAndView mv = new ModelAndView("administrativo/usuario/listaUsuario");
+
+        //Se o perfil não for 'USUARIO', redireciona para 'acessoNegado' (Criar página)
+        if (!perfil.equals(Perfil.USUARIO)) {
+            mv.setViewName("redirect:/acessoNegado");
+            return mv;
+        }
+
+        mv.addObject("listaUsuario", usuarioRepositorio.findByPerfil(perfil));
+        mv.addObject("usuarioPerfil", perfil);
+        return mv;
+    }
     @GetMapping("/editarUsuario/{id}")
     public ModelAndView editarUsuario(@PathVariable("id") Long id) {
         Optional<Usuario> usuario = usuarioRepositorio.findById(id);

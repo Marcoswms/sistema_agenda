@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private Perfil perfil; // Se Admin ou se Cliente
+    private Perfil perfil; // Se Admin ou se Usuario
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Cliente> clientes;

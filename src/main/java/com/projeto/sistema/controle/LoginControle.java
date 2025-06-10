@@ -32,7 +32,7 @@ public class LoginControle {
         Boolean ehUsuarioCorreto = usuarioRepositorio.existsByUsernameAndSenha(username, password);//faz o comparativo
         //de usuario e senha com o Boolean dentro do repositorio e segue o if/else
         if (ehUsuarioCorreto) {
-            Usuario usuario = usuarioRepositorio.findByUsername(username);//'usuario' será o objeto de permanente em
+            Usuario usuario = usuarioRepositorio.findByUsername(username);//'usuario' será o objeto permanente em
             // 'areaLogada' e os cadastros serão relacionado ao 'id' desse usuario
 
             // Armazena o usuário na sessão
