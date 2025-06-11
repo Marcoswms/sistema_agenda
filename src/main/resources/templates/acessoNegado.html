@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Acesso Negado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/style/css/acesso-negado.css}">
+
+</head>
+<body>
+
+<div class="access-denied-container" >
+    <img th:src="@{/imagens/acessoNegado.png}" alt="Acesso Negado">
+    <h2><i class="fa-solid fa-ban"></i> Acesso Negado</h2>
+    <p>Você não tem permissão para acessar esta página.</p>
+    <a href="/login" class="btn btn-outline-primary">Voltar para a Página Inicial</a>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

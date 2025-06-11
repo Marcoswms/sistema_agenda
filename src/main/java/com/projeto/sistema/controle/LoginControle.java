@@ -66,4 +66,9 @@ public class LoginControle {
         return "redirect:/login";
     }
 
+    @GetMapping("/acessoNegado")
+    public String acessoNegado() {
+        return "acessoNegado";
+    }
+
 }

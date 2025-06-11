@@ -16,7 +16,8 @@ public class SessaoFiltro implements Filter {
             "/login",
             "/cadastrarUsuario",
             "/trocarSenha",
-            "/areaLogada"
+            "/areaLogada",
+            "/acessoNegado"
     };
 
     @Override
